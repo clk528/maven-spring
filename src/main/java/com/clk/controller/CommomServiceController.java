@@ -11,7 +11,7 @@ public class CommomServiceController {
 		System.out.println("我进来了。。。555555");
 		return "hello";
 	}
-	@RequestMapping("/")
+	@RequestMapping("/index")
 	public String index(){
 		System.out.println("我进来了。。。");
 		return "index";
