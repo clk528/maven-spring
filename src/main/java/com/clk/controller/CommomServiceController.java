@@ -8,6 +8,11 @@ public class CommomServiceController {
 	
 	@RequestMapping("/hello")
 	public String hello(){
+		System.out.println("我进来了。。。555555");
+		return "hello";
+	}
+	@RequestMapping("/")
+	public String index(){
 		System.out.println("我进来了。。。");
 		return "index";
 	}
