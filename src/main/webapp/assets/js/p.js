@@ -1,4 +1,4 @@
-if(navigator.userAgent.toLowerCase().indexOf('chrome/') == -1){
+/*if(navigator.userAgent.toLowerCase().indexOf('chrome/') == -1){
 	alert("不支持非谷歌浏览器");
 	var bgObj=document.createElement("div");
 	bgObj.style.position="absolute";
@@ -11,7 +11,7 @@ if(navigator.userAgent.toLowerCase().indexOf('chrome/') == -1){
 	bgObj.style.height = "100%";
 	bgObj.style.zIndex = "10000";
 	document.body.appendChild(bgObj);
-}
+}*/
 
 Date.prototype.format = function(a) {
 	a || (a = "yyyy-MM-dd hh:mm:ss");
