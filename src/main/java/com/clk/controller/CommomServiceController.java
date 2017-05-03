@@ -10,18 +10,21 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.alibaba.fastjson.JSONObject; 
-
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONObject;
+
 @Controller
 public class CommomServiceController {
 	private JSONObject object = new JSONObject();
+	private static Logger log = Logger.getLogger(CommomServiceController.class.getName());
 	
 	@RequestMapping("/hello")
 	public String hello(){
+		log.info("===================================");
 		System.out.println("我进来了。。。555555");
 		return "hello";
 	}
