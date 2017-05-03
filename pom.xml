@@ -155,7 +155,7 @@
             </configuration>  
         </plugin>  
     </plugins>  
-    <finalName>spring</finalName>
+    <finalName>maven-spring</finalName>
   </build>
   <description>我是说明</description>
 </project>
