@@ -23,10 +23,12 @@ public class CommomServiceController {
 	private static Logger log = Logger.getLogger(CommomServiceController.class.getName());
 	
 	@RequestMapping("/hello")
-	public String hello(){
+	public ModelAndView hello(){
 		log.info("===================================");
 		System.out.println("我进来了。。。555555");
-		return "hello";
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		modelMap.put("sb", "你好啊");
+		return new ModelAndView("hello",modelMap);
 	}
 	@RequestMapping("/index")
 	public ModelAndView index(HttpServletRequest  http){
