@@ -60,6 +60,15 @@ public class CommomServiceController {
 		modelMap.put("message", new List());
 		System.out.println(object.toJSONString(modelMap));
 	}
+	@RequestMapping(value = "service")
+	public String service(HttpServletRequest request, String api, String message, String from, String sign){
+		System.out.println(api);
+		System.out.println(message);
+		System.out.println(from);
+		System.out.println(sign);		
+		return "service";
+	}
+	
 	
 	
 	public String getIpAddr(HttpServletRequest request) throws Exception{
@@ -72,7 +81,7 @@ public class CommomServiceController {
 	       }   
 	       if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {   
 	           ip = request.getRemoteAddr();   
-	           if(ip.equals("127.0.0.1") || ip.equals("0:0:0:0:0:0:0:1")){     
+	           if(ip.equals("127.0.0.1") || ip.equals("0:0:0:0:0:0:0:1")){
 	               //根据网卡取本机配置的IP
 	               InetAddress inet=null;     
 	               try {     
