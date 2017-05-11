@@ -18,9 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSONObject;
 
 @Controller
-public class CommomServiceController {
+public class CommonServiceController {
 	private JSONObject object = new JSONObject();
-	private static Logger log = Logger.getLogger(CommomServiceController.class.getName());
+	private static Logger log = Logger.getLogger(CommonServiceController.class.getName());
 	
 	@RequestMapping("/hello")
 	public ModelAndView hello(){
@@ -54,14 +54,14 @@ public class CommomServiceController {
 		System.out.println("我进来了。。。xxx"+http.getRemoteAddr());
 		return new ModelAndView("index",modelMap);
 	}
-	@RequestMapping("/Login/checkAccount")
+	/*@RequestMapping("/Login/checkAccount")
 	public void checkAccount (){
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		modelMap.put("code", "-1");
 		modelMap.put("message", "Test");
 		modelMap.put("message", new List());
 		System.out.println(object.toJSONString(modelMap));
-	}
+	}*/
 	@RequestMapping(value = "service")
 	public String service(HttpServletRequest request, String api, String message, String from, String sign){
 		System.out.println(api);

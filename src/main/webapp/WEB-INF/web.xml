@@ -62,8 +62,6 @@
   		<url-pattern>*.html</url-pattern>  	
   	</servlet-mapping>
   	
-
-  	
 	<!-- 字符过滤器 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -83,7 +81,5 @@
       	<welcome-file>index.html</welcome-file>
       	<!-- <welcome-file>index.jsp</welcome-file> -->
       	<welcome-file>index.htm</welcome-file>
-	</welcome-file-list>
-	
-	
+	</welcome-file-list>	
 </web-app>
