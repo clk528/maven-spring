@@ -127,7 +127,8 @@
 			var cryptPwd=Encrypt.RSAUnit.encryptToRSA(prikey,pwd);
 			$.ajax({ 
 		        type: "post", 
-		       	url: "/Login/checkAccount", 
+		       	url: "/maven-spring/login/checkAccount.html", 
+		       	dataType:'json',
 		       	data:{
 					account:username,
 					password:cryptPwd
@@ -150,11 +151,11 @@
 		return is_true;		
 	});
 	$.backstretch([
-	        "assets/img/bg/1.jpg",
-	        "assets/img/bg/2.jpg",
-	        "assets/img/bg/3.jpg",
-	        "assets/img/bg/4.jpg",
-	        "assets/img/bg/5.jpg",
+	        "/maven-spring/assets/img/bg/1.jpg",
+	        "/maven-spring/assets/img/bg/2.jpg",
+	        "/maven-spring/assets/img/bg/3.jpg",
+	        "/maven-spring/assets/img/bg/4.jpg",
+	        "/maven-spring/assets/img/bg/5.jpg",
         ], {
 			fade: 1000,
 			duration: 8000

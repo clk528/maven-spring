@@ -71,8 +71,6 @@ public class CommonServiceController {
 		return "service";
 	}
 	
-	
-	
 	public String getIpAddr(HttpServletRequest request) throws Exception{
 		String ip = request.getHeader("x-forwarded-for");   
 	       if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {   
