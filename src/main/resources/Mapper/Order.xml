@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.clk.dao.OrderDao">
+    <select id="queryAll" resultType="OrderEntity" parameterType="Integer">
+        select 
+            * 
+        from 
+            `order`
+        order by id desc
+        limit #{limit} , #{pageSize}
+    </select>
+</mapper>
