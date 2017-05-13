@@ -14,9 +14,7 @@ public class CommonService2Controller {
 	
 	@RequestMapping(value = "checkAccount",produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String  checkAccount(String name){
-		//String name = request.getParameter("name");
-		//System.out.println(name.getBytes());
+	public String  checkAccount(String name){		
 		System.out.println("我是好人呢"+(name ==null ? "9666" : name));
 		return JSON.toJSONString(new Message(-1,"正在处理中",true));
 	}
