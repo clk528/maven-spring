@@ -1,6 +1,5 @@
 package com.clk.controller;
 
-import java.awt.List;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
@@ -13,61 +12,46 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.alibaba.fastjson.JSONObject;
 
 @Controller
 public class CommonServiceController {
-	private JSONObject object = new JSONObject();
 	private static Logger log = Logger.getLogger(CommonServiceController.class.getName());
 	
 	@RequestMapping("/hello")
 	public ModelAndView hello(){
 		log.info("===================================");
-		System.out.println("我进来了。。。555555");
+		//System.out.println("我进来了。。。555555");
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		modelMap.put("sb", "你好啊");
 		return new ModelAndView("hello",modelMap);
 	}
 	@RequestMapping("/index")
 	public ModelAndView index(HttpServletRequest  http){
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Map<String, Object> modelMap = new HashMap<String, Object>();
-		modelMap.put("time",df.format(new Date()));
-		try {
-			modelMap.put("ip", getIpAddr(http));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}		
-		System.out.println("我进来了。。。xxx-----"+modelMap.get("ip"));
-		return new ModelAndView("index",modelMap);
+		return _index();
 	}
 	
 	@RequestMapping("/")
 	public ModelAndView defaultx(HttpServletRequest  http){
-		
+		return _index();
+	}
+	
+	private ModelAndView _index(){		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		modelMap.put("time",df.format(new Date()));
-		modelMap.put("ip", http.getRemoteAddr());		
-		System.out.println("我进来了。。。xxx"+http.getRemoteAddr());
+		modelMap.put("version",(new Date()).getTime());
 		return new ModelAndView("index",modelMap);
 	}
-	/*@RequestMapping("/Login/checkAccount")
-	public void checkAccount (){
-		Map<String, Object> modelMap = new HashMap<String, Object>();
-		modelMap.put("code", "-1");
-		modelMap.put("message", "Test");
-		modelMap.put("message", new List());
-		System.out.println(object.toJSONString(modelMap));
-	}*/
-	@RequestMapping(value = "service")
+	
+	@RequestMapping(value = "service",produces = "text/html;charset=UTF-8")
+	@ResponseBody
 	public String service(HttpServletRequest request, String api, String message, String from, String sign){
 		System.out.println(api);
 		System.out.println(message);
 		System.out.println(from);
-		System.out.println(sign);		
+		System.out.println(sign);
 		return "service";
 	}
 	

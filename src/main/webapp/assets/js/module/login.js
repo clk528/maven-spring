@@ -1,6 +1,6 @@
 ;(function($){
 
-	$("a[name=register]").click(function(){
+	/*$("a[name=register]").click(function(){
 		var msg_html = '' + 
 		'<div class="form-horizontal" id="clkDialog">'+
 			'<div class="form-group">'+
@@ -109,18 +109,18 @@
 		},function(m){
 			layer.msg("注册失败");
 		});
-	});
-	$("form.form-horizontal").submit(function(){
+	});*/
+	$(".login-form").submit(function(){
 		var is_true = false;
 		var username = $.trim($("input[name=J_user]").val()),
 			pwd = $.trim($("input[name=J_pwd]").val()),
 			prikey = "MIICXgIBAAKBgQDE9GQeZdR6Qoqtm07+zdWxX4PiQz48+PWIyxHrqvr88qS4peCsmL9kz0rTEwUI2pykurlYB3b1e+yOw9Nnpf2rE4OqFRuDleUS2/dvyAgxlYFsQlhTrjpY82Jy55V3+Uj2nsHX0tf4M7qr2U+UQA1md/Pmd+7MWRZ6ORuj67BPcQIDAQABAoGBAJ+o2iyGMfu2S4M2npASPkPegSP/jMmSrEBrFijsXzCEZqHE3mAsJyNKo4Z+KZum1Er5j1xcGMQh5H9LIeoo9nu2k/S7zRckY+ieCZ+2J8T+fsagpU0wPd5DShzQfCqakMlUAWLOZ14BXShq6/8Bo8TDJjjkq7ztW1kwTefuzimtAkEA8LARaGW5u/3W3LieTCcJtqlx1a1G2tpWgxnkfhSZDkNWCRQ++wluxS4zM3kZ6F7AzDCjk5ZT5kSa0JBO8vvO4wJBANF8Ea56ugZCNJnHL+RNTzfegv9KRzIzaRqVAiS1LnhmKN8QBgZZZgQflx2eHBnsOjrmjEpAg59bcTobRy/PhJsCQHx8FATS2EWK/F4cfoMUjcmTyfSiMktvMd+MvMkZDjB6Uz1O42QjdM83HfQ5ZlTw7PavEWt8DNjEEu5cNPknk9ECQQCGRcczlhicoF0E4GazKFaJkgdXSS3/YHKTBkW8b6GcrKav655g/XZlWDZNVqXee8sLK/FqOpXjVAJsY0WqwJHXAkEAyMBl3x70ERChQCyoCjHcPC8YpqjgwBwT/AOTBRC75z22OHYV7WkJ67SBk5TH2XoiTO7KWsvm5ktkAS/Hf/Q5rg==";
 			if(isEmpty(username)){
-				layer.alert("\u5e10\u53f7\u4e3a\u7a7a",{icon:2});
+				layer.msg("\u5e10\u53f7\u4e3a\u7a7a",{time:1000});
 				return false;
 			}
 			if(isEmpty(pwd)){
-				layer.alert("\u5bc6\u7801\u4e3a\u7a7a",{icon:2});
+				layer.msg("\u5bc6\u7801\u4e3a\u7a7a",{time:1000});
 				return false;
 			}
 			layer.load();
@@ -150,14 +150,14 @@
 			});
 		return is_true;		
 	});
-	$.backstretch([
-	        "/maven-spring/assets/img/bg/1.jpg",
-	        "/maven-spring/assets/img/bg/2.jpg",
-	        "/maven-spring/assets/img/bg/3.jpg",
-	        "/maven-spring/assets/img/bg/4.jpg",
-	        "/maven-spring/assets/img/bg/5.jpg",
-        ], {
-			fade: 1000,
-			duration: 8000
-    });
+	/*$.backstretch([
+		"/maven-spring/assets/img/bg/1.jpg",
+		"/maven-spring/assets/img/bg/2.jpg",
+		"/maven-spring/assets/img/bg/3.jpg",
+		"/maven-spring/assets/img/bg/4.jpg",
+		"/maven-spring/assets/img/bg/5.jpg",
+	], {
+		fade: 1000,
+		duration: 8000
+    });*/
 })(jQuery);
