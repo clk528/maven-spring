@@ -124,7 +124,13 @@
 				return false;
 			}
 			layer.load();
-			var cryptPwd=Encrypt.RSAUnit.encryptToRSA(prikey,pwd);
+			try{
+				var cryptPwd=Encrypt.RSAUnit.encryptToRSA(prikey,pwd);
+			}catch(e){
+				layer.closeAll();
+				console.log(e.message);
+				return false;
+			}
 			$.ajax({ 
 		        type: "post", 
 		       	url: "/maven-spring/login/checkAccount.html", 
