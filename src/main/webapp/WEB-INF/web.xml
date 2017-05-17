@@ -57,17 +57,22 @@
     </listener>
 	
 	<!-- 设置Spring容器加载配置文件路径 -->
-    <context-param>
+    <!-- <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
-    </context-param>
+    </context-param> -->
     
 	<servlet>  
 		<servlet-name>maven-spring</servlet-name>
 	  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 	  	<init-param>
 			<param-name>contextConfigLocation</param-name>
-	      	<param-value>/WEB-INF/maven-spring-servlet.xml</param-value>
+	      	<!-- <param-value>/WEB-INF/maven-spring-servlet.xml</param-value> -->
+	      	<param-value>
+	      	    /WEB-INF/maven-spring-servlet.xml
+	      	    /WEB-INF/applicationContext.xml
+	      	    classpath:spring-dao.xml
+	      	</param-value>
 	    </init-param>
 	    <init-param>
 			<param-name>encoding</param-name>

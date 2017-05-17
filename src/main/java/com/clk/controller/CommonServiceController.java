@@ -3,6 +3,7 @@ package com.clk.controller;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,14 +16,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
+import com.clk.service.impl.TestServiceImpl;
+import com.clk.core.dict.test;
+
 @Controller
 public class CommonServiceController {
 	private static Logger log = Logger.getLogger(CommonServiceController.class.getName());
+	
+	private TestServiceImpl testservice;
 	
 	@RequestMapping("/hello")
 	public ModelAndView hello(){
 		log.info("===================================");
 		//System.out.println("我进来了。。。555555");
+		System.out.println(test.SUCCESS.getMessage());
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		modelMap.put("sb", "你好啊");
 		return new ModelAndView("hello",modelMap);
@@ -52,9 +60,21 @@ public class CommonServiceController {
 		System.out.println(message);
 		System.out.println(from);
 		System.out.println(sign);
-		return "service";
+		ArrayList<String> list = new ArrayList<String>();
+		list.add(api);
+		list.add(message);
+		list.add(from);
+		list.add(sign);
+		return JSON.toJSONString(list);
 	}
-	
+	@RequestMapping(value = "test",produces = "text/html;charset=UTF-8")
+	@ResponseBody
+	public String test(){
+		return testservice.test("你好");
+		//testservice.test("你好");
+		//return "sdfsfsdf";
+	}
+		
 	public String getIpAddr(HttpServletRequest request) throws Exception{
 		String ip = request.getHeader("x-forwarded-for");   
 	       if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {   
