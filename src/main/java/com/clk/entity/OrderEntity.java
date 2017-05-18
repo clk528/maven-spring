@@ -24,11 +24,11 @@ public class OrderEntity {
 	/**
 	 * 创建时间
 	 */
-	private Integer create_time;
+	private Integer createTime;
 	/**
 	 * 支付时间
 	 */
-	private Integer pay_time;
+	private Integer payTime;
 	
 	public Integer getId() {
 		return id;
@@ -60,16 +60,16 @@ public class OrderEntity {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Integer getCreate_time() {
-		return create_time;
+	public Integer getCreateTime() {
+		return createTime;
 	}
-	public void setCreate_time(Integer create_time) {
-		this.create_time = create_time;
+	public void setCreateTime(Integer createTime) {
+		this.createTime = createTime;
 	}
-	public Integer getPay_time() {
-		return pay_time;
+	public Integer getPayTime() {
+		return payTime;
 	}
-	public void setPay_time(Integer pay_time) {
-		this.pay_time = pay_time;
+	public void setPayTime(Integer payTime) {
+		this.payTime = payTime;
 	}
 }

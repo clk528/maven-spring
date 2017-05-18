@@ -6,28 +6,9 @@
       version="3.0">
     <display-name>maven-spring</display-name>
     
-    <!-- 字符过滤器 -->
-    <filter>
-        <filter-name>encodingFilter</filter-name>
-        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-        <init-param>
-            <param-name>encoding</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-        <init-param>
-            <param-name>forceEncoding</param-name>
-            <param-value>true</param-value>
-        </init-param>
-    </filter>
-    
-    <filter-mapping>
-        <filter-name>encodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>webRoot</param-value>
+        <param-value>web.root.maven-spring</param-value>
     </context-param>
     
     <!-- log4j配置，文件路径，因为是跟随项目启动 -->
@@ -85,7 +66,26 @@
   		<servlet-name>maven-spring</servlet-name>
   		<url-pattern>*.html</url-pattern>  	
   	</servlet-mapping>
-      
+    
+     <!-- 字符过滤器 -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
 	<welcome-file-list>
       	<welcome-file>index.html</welcome-file>
       	<!-- <welcome-file>index.jsp</welcome-file> -->

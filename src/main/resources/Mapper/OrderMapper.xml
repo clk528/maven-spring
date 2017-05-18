@@ -7,6 +7,6 @@
         from 
             `order`
         order by id desc
-        limit #{limit} , #{pageSize}
+        limit #{pageSize} , #{limit}
     </select>
 </mapper>

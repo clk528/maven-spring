@@ -1,13 +1,14 @@
 package com.clk.service.impl;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
+import com.clk.core.Message.MessageInfo;
 import com.clk.dao.OrderDao;
+import com.clk.entity.OrderEntity;
 //import com.clk.dao.OrderDao;
 import com.clk.service.TestService;
 
@@ -17,10 +18,9 @@ public class TestServiceImpl implements TestService{
 	private OrderDao orderdao;//这里不完善
 	
 	@Override
-	public String test(String name) {
-		Map<String,Object> data = new HashMap<String,Object>();
-		data.put("test", orderdao.queryAll(1, 20));
-		data.put("a", name);
-		return JSON.toJSONString(data);
+	public String test() {
+		MessageInfo<List<OrderEntity>> message = new MessageInfo<List<OrderEntity>>();
+		message.setData(orderdao.queryAll(1, 100));
+		return JSON.toJSONString(message);
 	}
 }
