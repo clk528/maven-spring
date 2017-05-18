@@ -72,9 +72,7 @@ public class CommonServiceController {
 	@RequestMapping(value = "test",produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String test(){
-		return testservice.test("你好");
-		//testservice.test("你好");
-		//return "sdfsfsdf";
+		return testservice.test();
 	}
 		
 	public String getIpAddr(HttpServletRequest request) throws Exception{
