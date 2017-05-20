@@ -9,4 +9,7 @@
         order by id desc
         limit #{pageSize} , #{limit}
     </select>
+    <select id="getUser" resultType="com.clk.entity.UserEntity" parameterType="String">
+        select * from user_info.account where nick =#{nick} limit 1
+    </select>
 </mapper>

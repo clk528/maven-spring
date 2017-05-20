@@ -41,7 +41,8 @@
     </bean> -->
         
     <!-- 1.读取配置 -->
-    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> -->
+    <bean id="propertyConfigurer" class="com.clk.core.dict.Configurer">    
         <property name="location" value="classpath:config.properties"/>
     </bean>
     

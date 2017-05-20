@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>测试-mybatis</title>
+        <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	   <div class="container">	
+			<#if code==1>
+			      <table class="table">
+			          <thead>
+			              <tr>
+			                  <th>用户名${code}</th>
+			                  <th>用户id</th>
+			                  <th>创建日期</th>
+			                  <th>最后一次登录</th>		                  
+			              </tr>
+			          </thead>
+			          <tbody>
+			              <tr>
+			                  <td>${Message.nick}</td>
+			                  <td>${Message.id}</td>
+			                  <td>${Message.createTime}</td>
+			                  <td>${Message.lastLoginTime}</td>
+			              </tr>
+			          </tbody>
+			      </table>
+			<#else>
+				<div style="text-align: center;">
+		            <h1>出错啦--${Message}</h1>
+				</div>		    
+			</#if>
+		</div>
+	</body>
+</html>

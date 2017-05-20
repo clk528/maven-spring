@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 
 import com.clk.entity.OrderEntity;
+import com.clk.entity.UserEntity;
 @MapperScan
 public interface OrderDao {
 	/**
@@ -14,4 +15,6 @@ public interface OrderDao {
 	 * @return List
 	 */
 	List<OrderEntity> queryAll(@Param("pageSize") Integer pageSize,@Param("limit") Integer limit);
+	
+	UserEntity getUser(@Param("nick") String nick);
 }

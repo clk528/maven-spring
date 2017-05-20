@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.bind.PropertyException;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +21,19 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSON;
 import com.clk.service.impl.TestServiceImpl;
 import com.clk.core.dict.test;
+import com.clk.core.dict.Configurer;
 
 @Controller
 public class CommonServiceController {
-	private static Logger log = Logger.getLogger(CommonServiceController.class.getName());
+	private static Logger logger = Logger.getLogger(CommonServiceController.class.getName());
 	
 	@Autowired
 	private TestServiceImpl testservice;
 	
 	@RequestMapping("/hello")
-	public ModelAndView hello(){
-		log.info("===================================");
-		//System.out.println("我进来了。。。555555");
+	public ModelAndView hello() throws PropertyException{
+		logger.info("===================================");
+		System.out.println(Configurer.getProperty("dbUser"));
 		System.out.println(test.SUCCESS.getMessage());
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		modelMap.put("sb", "你好啊");
@@ -73,6 +75,11 @@ public class CommonServiceController {
 	@ResponseBody
 	public String test(){
 		return testservice.test();
+	}
+	
+	@RequestMapping(value = "getuser",produces = "text/html;charset=UTF-8")
+	public ModelAndView getuser(String nick){
+		return new ModelAndView("getuser",testservice.getUser(nick));
 	}
 		
 	public String getIpAddr(HttpServletRequest request) throws Exception{
