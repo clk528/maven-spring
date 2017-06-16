@@ -19,7 +19,7 @@ public class Configurer extends PropertyPlaceholderConfigurer{
         for (Object key : props.keySet()) {
             String keyStr = key.toString();
             String value = props.getProperty(keyStr);
-            System.out.println(keyStr+" = " + value);
+            //System.out.println(keyStr+" = " + value);
             propertyMap.put(keyStr, value);
         }
 	}

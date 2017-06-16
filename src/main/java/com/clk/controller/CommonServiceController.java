@@ -33,7 +33,7 @@ public class CommonServiceController {
 	@RequestMapping("/hello")
 	public ModelAndView hello() throws PropertyException{
 		logger.info("===================================");
-		System.out.println(Configurer.getProperty("dbUser"));
+		System.out.println(System.getProperty("webAppRootKey"));
 		System.out.println(test.SUCCESS.getMessage());
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		modelMap.put("sb", "你好啊");

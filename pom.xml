@@ -164,6 +164,12 @@
         </dependency>
         
         <dependency>
+            <groupId>net.iharder</groupId>
+            <artifactId>base64</artifactId>
+            <version>2.3.9</version>
+        </dependency>
+        
+        <dependency>
     		<groupId>javax.servlet</groupId>
     		<artifactId>jstl</artifactId>
     		<version>1.2</version>
@@ -174,6 +180,16 @@
     		<artifactId>standard</artifactId>
     		<version>1.1.2</version>
     	</dependency>
+    	
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-asl</artifactId>
+            <version>0.9.5</version>
+    	</dependency>
+    	
+    	<dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.9.9</version>
     
     </dependencies>
     <build>
