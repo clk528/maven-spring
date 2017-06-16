@@ -3,7 +3,6 @@ package com.clk.controller;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,10 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSON;
-import com.clk.service.impl.TestServiceImpl;
 import com.clk.core.dict.test;
-import com.clk.core.dict.Configurer;
+import com.clk.service.impl.TestServiceImpl;
 
 @Controller
 public class CommonServiceController {
@@ -57,20 +54,6 @@ public class CommonServiceController {
 		return new ModelAndView("index",modelMap);
 	}
 	
-	@RequestMapping(value = "service",produces = "text/html;charset=UTF-8")
-	@ResponseBody
-	public String service(HttpServletRequest request, String api, String message, String from, String sign){
-		System.out.println(api);
-		System.out.println(message);
-		System.out.println(from);
-		System.out.println(sign);
-		ArrayList<String> list = new ArrayList<String>();
-		list.add(api);
-		list.add(message);
-		list.add(from);
-		list.add(sign);
-		return JSON.toJSONString(list);
-	}
 	@RequestMapping(value = "test",produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String test(){
