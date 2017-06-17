@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>发送邮件</title>
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script type="text/javascript" src="/maven-spring/assets/js/p.js?v=${version}"></script>
+        <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="//cdn.bootcss.com/layer/2.3/layer.js"></script>
+        <script src="/maven-spring/assets/js/jsencrypt.min.js"></script>  
+	</head>
+	<body>
+        <div class="container">
+	        <div style="text-align: center;margin-bottom: 5rem;">
+	            <h3>邮件发送测试</h3>
+	        </div>
+            <form class="form-horizontal" name="sendform" method="post" onsubmit="return check()">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">对方Email <font color="red">*</font></label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" name="receiveMail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">主题 <font color="red">*</font></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="title" placeholder="title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">内容    <font color="red">*</font></label>
+                    <div class="col-sm-10">
+                        <textarea rows="5" cols="" name="body" placeholder="body" class="form-control" style="resize: none;"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">发送</button>
+                    </div>
+                </div>
+            </form>
+		</div>
+	</body>
+	<script type="text/javascript">
+        function check(){
+        	if(!/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/.test(sendform.receiveMail.value)){
+        		alert("收件人邮箱格式不正确");
+        		return false;
+        	}
+        	
+        	if($.trim(sendform.title.value)=="" || $.trim(sendform.title.value)==null){
+        		alert("标题不能为空");
+        		return false;
+        	}
+        	
+        	if($.trim(sendform.body.value)=="" || $.trim(sendform.body.value)==null){
+                alert("标题不能为空");
+                return false;
+            }
+        	return true;
+        }
+	</script>
+</html>

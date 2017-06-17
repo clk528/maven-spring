@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.PropertyException;
@@ -19,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.clk.core.dict.test;
 import com.clk.service.impl.TestServiceImpl;
+import com.clk.library.sendmail;
 
 @Controller
 public class CommonServiceController {
@@ -38,11 +41,12 @@ public class CommonServiceController {
 	}
 	@RequestMapping("/index")
 	public ModelAndView index(HttpServletRequest  http){
+		
 		return _index();
 	}
 	
 	@RequestMapping("/")
-	public ModelAndView defaultx(HttpServletRequest  http){
+	public ModelAndView defaultx(HttpServletRequest  http){		
 		return _index();
 	}
 	
@@ -93,5 +97,45 @@ public class CommonServiceController {
 	           }     
 	       }     
 	       return ip; 
+	}
+	@RequestMapping(value = "sendmail")
+	public String sendmail(HttpServletRequest request){
+		if(request.getMethod().equals("POST")){
+			String receiveMail = request.getParameter("receiveMail");
+			String title = request.getParameter("title");
+			String body = request.getParameter("body");
+			
+			boolean isCheck = true;
+			
+			if(receiveMail !=null && receiveMail != ""){
+				Pattern pattern = Pattern.compile( "[a-zA-Z_]{1,}[0-9]{0,}@(([a-zA-z0-9]-*){1,}\\.){1,3}[a-zA-z\\-]{1,}",Pattern.CASE_INSENSITIVE);
+				Matcher matcher = pattern.matcher(receiveMail);
+				if(!matcher.matches()){
+					isCheck = false;
+					System.out.println("A验证不通过");
+				}
+			} else {
+				isCheck = false;
+			}
+			
+			if(title =="" || title == null){
+				isCheck = false;
+				System.out.println("B验证不通过");
+			}
+			
+			if(body =="" || body == null){
+				isCheck = false;
+				System.out.println("C验证不通过");
+			}
+			if(isCheck){
+				try {
+					sendmail sm = new sendmail();
+					sm.send(receiveMail, title,body);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return "sendmail";
 	}
 }

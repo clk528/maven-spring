@@ -102,6 +102,14 @@ public class CommonService3Controller {
 		
 		return sBuilder.toString();
 	}
+	/**
+	 * 检查签名是否一直 2017年6月17日 11:47:45
+	 * @author clk
+	 * @param message
+	 * @param appkey
+	 * @param sign
+	 * @return boolean
+	 */
 	private boolean isValidSign(String message,String appkey,String sign){
 		try {
 			String appSign = Configurer.getProperty(appkey);
