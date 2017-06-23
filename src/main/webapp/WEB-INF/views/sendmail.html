@@ -61,5 +61,17 @@
             }
         	return true;
         }
+        <#if code==1>
+            alert("发送成功");
+        <#elseif code==2>
+            console.log("这家伙GET进来的啦~~${msg}");
+        <#elseif code==0>
+            console.log("发送失败：${msg}");
+            alert("${msg}");
+        </#if>
+        
 	</script>
+	
+	
+	
 </html>

@@ -18,11 +18,11 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
+        <!-- <dependency>
         	<groupId>commons-Logging</groupId>
         	<artifactId>commons-Logging</artifactId>
         	<version>1.2</version>
-        </dependency>
+        </dependency> -->
         
         <!-- spring 核心包区域 -->
         <dependency>
@@ -90,6 +90,12 @@
             <artifactId>spring-jdbc</artifactId>
             <version>4.0.4.RELEASE</version>
         </dependency>
+        
+        <dependency>  
+            <groupId>org.springframework.data</groupId>  
+            <artifactId>spring-data-redis</artifactId>  
+            <version>1.8.4.RELEASE</version>  
+        </dependency>
 
         <dependency>
             <groupId>org.freemarker</groupId>
@@ -139,12 +145,14 @@
 		    <version>1.4</version>
         </dependency>
         
+        <!-- mysql -->
         <dependency>
         	<groupId>mysql</groupId>
         	<artifactId>mysql-connector-java</artifactId>
         	<version>5.1.39</version>
         </dependency>
         
+        <!-- log -->
         <dependency>
         	<groupId>org.slf4j</groupId>
         	<artifactId>slf4j-api</artifactId>
@@ -199,6 +207,13 @@
             <artifactId>mail</artifactId>
             <version>1.5.0-b01</version>
         </dependency>
+        
+        <!-- redis -->
+        <dependency>  
+            <groupId>redis.clients</groupId>  
+            <artifactId>jedis</artifactId>  
+            <version>2.9.0</version>  
+        </dependency> 
     	
         <dependency>
     		<groupId>taglibs</groupId>
